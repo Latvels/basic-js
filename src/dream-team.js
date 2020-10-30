@@ -1,15 +1,13 @@
-module.exports = function createDreamTeam(members) {   
-     if (Array.isArray(members)) {
-        let newArr = [];
-        let dreamTeam;
-        members.forEach(item => {   
-            if(typeof item == "string") {
-                newArr.push(item.trim().toUpperCase()[0]);                                              
-            }                          
-        })
-        newArr.sort();         
-        dreamTeam = newArr.join('');         
-        return dreamTeam;  
-     }    
-    return false;
+module.exports = function createDreamTeam(members) {
+  if (!Array.isArray(members)) return false;
+
+  let array = [];
+  for (let member of members) {
+    if (typeof member == "string") {
+      let tempStr = member.trim();
+      array.push(tempStr[0].toUpperCase());
+    }
+  }
+
+  return array.sort().join('');
 };
